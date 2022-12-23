@@ -4,6 +4,7 @@ const taskSchema = mongoose.Schema({
   taskName: String,
   status: String,
   tag: String,
+  priority: String,
   userId: String,
 });
 
