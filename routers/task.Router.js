@@ -41,8 +41,8 @@ taskRouter.get("/:taskId", async (req, res) => {
 });
 
 taskRouter.post("/create", async (req, res) => {
-  let { taskName, status, tag } = req.body;
-  if (taskName == undefined || status == undefined || tag == undefined) {
+  let { taskName, status, tag, priority } = req.body;
+  if (taskName == undefined || status == undefined || tag == undefined || priority==undefined) {
     res.send({ msg: "some fields are missing" });
     return;
   }
@@ -51,6 +51,7 @@ taskRouter.post("/create", async (req, res) => {
       taskName,
       status,
       tag,
+      priority,
       userId: req.body.userId,
     });
     await task.save();
